@@ -1,0 +1,82 @@
+<style>
+.section .reveal .state-background {
+    background: #92a8d1;}
+.section .reveal h1,
+.section .reveal p {
+    color: #000;
+    position: relative;
+    top: 4%;}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  word-wrap: normal;
+  -moz-hyphens: none;
+}
+
+</style>
+
+APTM: Another Predictive Text Model
+========================================================
+id: slide1
+author: Mohamad Fuad
+date: October 31, 2018
+autosize: true
+transition: rotate
+css: ../www/style.css
+
+
+========================================================
+id: slide2
+<h2>Motivation</h2><small>
+APTM is the capstone project in the Coursera Johns Hopkins University
+[Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science).</small>
+<p>
+<h2>Goal</h2><small>
+The goal of this capstone is to build a predictive text model, similar to those
+included in mobile texting apps. [SwiftKey](https://swiftkey.com/en) has 
+partnered with Coursera for this capstone project and provided a body of [text 
+documents](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) 
+from twitter, news sites, and blogs.</small>
+
+<h2>[App](https://fuadkpm1980.shinyapps.io/capstone/)</h2><small>
+Just start typing as if you were using a messaging app. APTM will return the top
+prediction in context, and a table of up to the top five.</small>
+
+========================================================
+id: slide3
+<h2>Data Ingest</h2><small>
+The source data is 800 Mb, and consists of over four million lines of test. 98% 
+was retained for training, and 2% for testing. These data were transformed into 
+n-gram frequency tables. Further details can be found in the [milestone 
+report](http://rpubs.com/fuadkpm1980/project_capstone).</small>
+
+<h2>Model</h2><small>
+The n-grams in the frequency tables were split into the first n-1 words (the 
+input X), and the last word (the predicted response, y). The responses are 
+scored using a method called "Stupid Backoff". To save on memory, the training
+n-grams are pruned to those with count > 8.
+
+One embellishment beyond the base requirements is current-word prediction: If 
+the last character of the input is not a space, the last word (fragment) is 
+split from the input. The preceding input is used to generate predictions, which 
+are then filtered to just those starting with the next-word starting fragment.</small>
+
+========================================================
+id: slide4
+
+<div align="center">
+<img src="apps_words.png" width=800 height=800>
+</div>
+
+
+***
+<h2>Using the Application<h2><small>
+Use of the application is straightforward and can be easily adapted to many educational and commercial uses. In the left picture, the user begins just by typing some text without punctuation in the supplied input box. As the user types, the prediction is echoed in the field below.</small>
+
+========================================================
+id: slide5
+
+Visit the APTM app at https://fuadkpm1980.shinyapps.io/capstone/.  
+
+All code supporting this project is available on GitHub at https://github.com/fuadkpm1980/Capstone-Final-Project-. 
+
+</small>
